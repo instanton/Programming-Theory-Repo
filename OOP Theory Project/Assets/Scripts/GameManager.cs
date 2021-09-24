@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public GameObject targetSpherePrefab;
     public TextMeshProUGUI counterText;
+    //public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI nameText;
+
 
     private int redCount = 0;
     private int whiteCount = 0;
@@ -19,6 +23,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnTarget", startDelay, repeatRate);
+
+        nameText.text = "Player: " + MainManager.Instance.playerName;
+        UpdateHighScore();
     }
 
     // Update is called once per frame
@@ -48,5 +55,10 @@ public class GameManager : MonoBehaviour
         
         
         Debug.Log("Red Count = " + redCount + ", White Count = " + whiteCount);
+    }
+
+    public void UpdateHighScore()
+    {
+        highScoreText.text = "Best Score: " + MainManager.Instance.highScore + "  Name: " + MainManager.Instance.highScorePlayerName;
     }
 }
