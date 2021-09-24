@@ -24,7 +24,10 @@ public class GameManager : MonoBehaviour
     {
         InvokeRepeating("SpawnTarget", startDelay, repeatRate);
 
-        nameText.text = "Player: " + MainManager.Instance.playerName;
+        if (MainManager.Instance != null)
+        {
+            nameText.text = "Player: " + MainManager.Instance.playerName;
+        }
         UpdateHighScore();
     }
 
@@ -59,6 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHighScore()
     {
-        highScoreText.text = "Best Score: " + MainManager.Instance.highScore + "  Name: " + MainManager.Instance.highScorePlayerName;
+        //highScoreText.text = "Best Score: " + MainManager.Instance.highScore + "  Name: " + MainManager.Instance.highScorePlayerName;
     }
 }
