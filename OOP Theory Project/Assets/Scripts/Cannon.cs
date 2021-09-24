@@ -27,7 +27,7 @@ public class Cannon : MonoBehaviour
         //add turning based on horizontal input
         transform.Rotate(Vector3.forward, turnSpeed * horizontalInput * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Debug.Log("Firing!");
             SpawnCannonBall();

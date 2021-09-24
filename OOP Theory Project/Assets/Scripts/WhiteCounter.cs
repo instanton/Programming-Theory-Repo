@@ -12,20 +12,12 @@ public class WhiteCounter : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Yellow"))
+        if (other.CompareTag("Ball"))
         {
-            Debug.Log("Got a YELLOW in a White square");
-            gameManager.UpdateScore(-1);
+            other.GetComponentInParent<Ball>().UpdateScore();
         }
-
         Destroy(other.gameObject);
     }
 }

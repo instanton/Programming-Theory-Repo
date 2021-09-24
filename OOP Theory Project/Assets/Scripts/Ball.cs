@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public abstract class Ball : MonoBehaviour
 {
+    protected GameManager gameManager;
+
     public Color color;
     public int redPoints;
     public int whitePoints;
 
+    // ENCAPSULATION
     private float m_timeToLive = 5;
     public float timeToLive
     {
@@ -16,7 +19,6 @@ public class Ball : MonoBehaviour
         {
             if (value < 0.0f)
             {
-
                 Debug.LogError("You can't set a negative life time!");
             }
             else
@@ -29,9 +31,13 @@ public class Ball : MonoBehaviour
     
     
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        StartCoroutine(TImeToLiveRoutine());
+        //Debug.Log("In Ball base class Start(). m_timeToLive = " + m_timeToLive);
+        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
+        StartCoroutine(TimeToLiveRoutine());
     }
 
     // Update is called once per frame
@@ -41,9 +47,9 @@ public class Ball : MonoBehaviour
     }
 
     //life coroutine
-    IEnumerator TImeToLiveRoutine()
+    IEnumerator TimeToLiveRoutine()
     {
-        yield return new WaitForSeconds(timeToLive);
+        yield return new WaitForSeconds(m_timeToLive);
         Destroy(gameObject);
     }
 
@@ -52,4 +58,8 @@ public class Ball : MonoBehaviour
     {
         return "Ball";
     }
+
+    public abstract void UpdateScore();
+
+
 }

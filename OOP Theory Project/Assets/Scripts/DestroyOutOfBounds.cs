@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class BallCounter : MonoBehaviour
+public class DestroyOutOfBounds : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +18,6 @@ public class BallCounter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        //counterText.text = "Count : " + count;
-        //Debug.Log("Count = " + count);
-
         Destroy(other.gameObject);
     }
 }

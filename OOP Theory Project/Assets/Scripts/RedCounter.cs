@@ -12,20 +12,13 @@ public class RedCounter : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Yellow"))
+        if (other.CompareTag("Ball"))
         {
-            Debug.Log("Got a YELLOW in a RED square");
-            gameManager.UpdateScore(1);
+            //Debug.Log("other GCIP<Ball> name: " + other.GetComponentInParent<Ball>().name);
+            other.GetComponentInParent<Ball>().UpdateScore();
         }
-
         Destroy(other.gameObject);
     }
 }
