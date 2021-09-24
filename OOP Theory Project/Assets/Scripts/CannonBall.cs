@@ -11,7 +11,7 @@ public class CannonBall : Ball
     {
         //Debug.Log("In CannonBall Start()");
 
-        timeToLive = 5;
+        timeToLive = 7;
 
         base.Start();
     }

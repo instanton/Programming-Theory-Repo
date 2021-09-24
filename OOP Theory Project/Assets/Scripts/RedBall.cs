@@ -11,7 +11,7 @@ public class RedBall : Ball
     {
         //Debug.Log("In RedBall Start()");
 
-        timeToLive = 5;
+        timeToLive = 7;
 
         base.Start();
     }

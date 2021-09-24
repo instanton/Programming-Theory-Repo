@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private Vector3 spawnPos;
 
     private float yellowBallStartDelay = 5;
-    private float yellowBallRepeatRate = 5;
+    private float yellowBallRepeatRate = 10;
     private float goodBallStartDelay = 2;
     private float goodBallRepeatRate = 3;
     

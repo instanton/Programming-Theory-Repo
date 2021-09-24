@@ -10,7 +10,7 @@ public class YellowBall : Ball
     {
         //Debug.Log("In YellowBall Start()");
 
-        timeToLive = 10;
+        timeToLive = 15;
 
         base.Start();
     }
