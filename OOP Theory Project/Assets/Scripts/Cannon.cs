@@ -29,7 +29,7 @@ public class Cannon : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("Firing!");
+            //Debug.Log("Firing!");
             SpawnCannonBall();
         }
 

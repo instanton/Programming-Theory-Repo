@@ -80,15 +80,10 @@ public class GameManager : MonoBehaviour
             Destroy(ball);
         }
 
-        Debug.Log("Current High Score: " + MainManager.Instance.highScore);
         if (score > MainManager.Instance.highScore)
         {
-            Debug.Log("UPDATING HIGH SCORE");
-            
             MainManager.Instance.highScore = score;
             MainManager.Instance.highScorePlayerName = MainManager.Instance.playerName;
-
-            //Debug.Log("New High Score: " + score);
 
             UpdateHighScore();
         }
@@ -120,7 +115,6 @@ public class GameManager : MonoBehaviour
     {
         if (MainManager.Instance != null)
         {
-            Debug.Log("PRINTING HIGH SCORE");
             highScoreText.text = "High Score: " + MainManager.Instance.highScore + "\nName: " + MainManager.Instance.highScorePlayerName;
         }
     }
